@@ -1,20 +1,22 @@
+def heapsort(a):
+        size = len(a) #정렬크기
+        for i in range(size, -1, -1) : heapify(a, size, i)
+        for i in range(size-1, -1, -1) :
+                a[i], a[0] = a[0], a[i]
+                heapify(a, i, 0)
+
+def heapify(a, size, i):
+        largest = i
+        L = 2 * i + 1
+        R = 2 * i + 2
+        if L < size and a[L] > a[i]:
+                largest = L
+        if R < size and a[R] > a[largest]:
+                largest = R
+        if largest != i:
+                a[largest], a[i] = a[i], a[largest]
+                heapify(a, size, largest)
+
 unsorted = [12, 30, 6, 7, 4]
-
-def heap_sort(u)
-        max = len(u) #정렬크기
-        for i in range(0, max) : heapify(u, i, max)
-        for i in range(0, max-1) :
-                u[i], u[0]
-
-def heapify(u, index, m)
-        l_index = 2*index +1
-        r_index = 2*index +2
-        largest = index
-        if l_index < m and u[l_index] > u[largest] #왼쪽인덱스가 m보다 크고 왼쪽값이 부모값보다 클때
-                : largest = l_index # 가장큰인덱스는 왼쪽인덱스로 바꿈
-        if r_index < m and u[r_index] > u[largest]
-                : largest = r_index
-        if largest != index
-                : u[index], u[largest] = u[largest], u[index] #가장큰 인덱스가 index사이즈와 같지 않다면 서로의 값을 바꿈
-
+heapsort(unsorted)
 print(unsorted)
