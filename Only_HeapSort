@@ -1,22 +1,21 @@
-class Heap_Sort:
-        def heapsort(a):
-                size = len(a) #정렬크기
-                for i in range(size, -1, -1) : heapify(a, size, i)
-                for i in range(size-1, -1, -1) :
-                        a[i], a[0] = a[0], a[i]
-                heapify(a, i, 0)
+def heapsort(unsorted):
+        size = len(unsorted) #정렬크기
+        for i in range(size, -1, -1) : heapify(unsorted, size, i)
+        for i in range(size-1, -1, -1) :
+                unsorted[i], unsorted[0] = unsorted[0], unsorted[i]
+                heapify(unsorted, i, 0)
 
-        def heapify(a, size, i):
-                largest = i
-                L = 2 * i + 1
-                R = 2 * i + 2
-                if L < size and a[L] > a[i]:
-                        largest = L
-                if R < size and a[R] > a[largest]:
-                        largest = R
-                if largest != i:
-                        a[largest], a[i] = a[i], a[largest]
-                        heapify(a, size, largest)
-
-        heapsort(a)
-        print(a)
+def heapify(a, size, i):
+        largest = i
+        L = 2 * i + 1
+        R = 2 * i + 2
+        if L < size and a[L] > a[i]:
+                largest = L
+        if R < size and a[R] > a[largest]:
+                largest = R
+        if largest != i:
+                a[largest], a[i] = a[i], a[largest]
+                heapify(a, size, largest)
+unsorted = [5,8,23,1,82]
+heapsort(unsorted)
+print(unsorted)
