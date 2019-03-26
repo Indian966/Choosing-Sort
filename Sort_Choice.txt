@@ -14,20 +14,20 @@ def heapsort(unsorted):
         size = len(unsorted) #정렬크기
         for i in range(size, -1, -1) : heapify(unsorted, size, i)
         for i in range(size-1, -1, -1) :
-            unsorted[i], unsorted[0] = unsorted[0], unsorted[i]
-            heapify(unsorted, i, 0)
+                unsorted[i], unsorted[0] = unsorted[0], unsorted[i]
+                heapify(unsorted, i, 0)
 
-def heapify(unsorted, size, i):
+def heapify(a, size, i):
         largest = i
         L = 2 * i + 1
         R = 2 * i + 2
-        if L < size and unsorted[L] > unsorted[i]:
+        if L < size and a[L] > a[i]:
                 largest = L
-        if R < size and unsorted[R] > unsorted[largest]:
+        if R < size and a[R] > a[largest]:
                 largest = R
         if largest != i:
-                unsorted[largest], unsorted[i] = unsorted[i], unsorted[largest]
-                heapify(unsorted, size, largest)
+                a[largest], a[i] = a[i], a[largest]
+                heapify(a, size, largest)
 
 if call == 1:
     heapsort(unsorted)
@@ -40,4 +40,3 @@ def quick_sort(unsorted):
     return unsorted
 
 print("정렬 결과는 이렇습니다.\n")
-print(unsorted)
