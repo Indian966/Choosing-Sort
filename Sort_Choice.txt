@@ -40,3 +40,4 @@ def quick_sort(unsorted):
     return unsorted
 
 print("정렬 결과는 이렇습니다.\n")
+print(unsorted)
