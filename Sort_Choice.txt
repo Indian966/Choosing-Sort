@@ -1,6 +1,6 @@
 t = 0
 print("원하시는 정수를 5개 입력해주세요:\n")
-unsorted = []
+unsorted = [], sorted = []
 while t < 5:
     n = input()
     unsorted.append(n)
