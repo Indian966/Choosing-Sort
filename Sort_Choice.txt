@@ -2,9 +2,9 @@ t = 0
 print("원하시는 정수를 5개 입력해주세요:\n")
 unsorted = []
 while t < 5:
-    n = input()
-    unsorted.append(n)
-    t = t + 1
+          n = input()
+          unsorted.append(n)
+          t = t + 1
 
 print("원하시는 정렬 방식이 있나요?\n")
 print("1. 힙정렬  2. 버블정렬  3. 퀵정렬\n")
@@ -30,14 +30,21 @@ def heapify(a, size, i):
                 heapify(a, size, largest)
 
 if call == 1:
-    heapsort(unsorted)
+        heapsort(unsorted)
+        print("정렬 결과는 이렇습니다.\n")
+        print(unsorted)
 
+def bubble_sort(a):
+	size = len(a)
+	for i in range(size-1):
+		for j in range(size-i-1):
+			if a[j]>a[j+1]: a[j],a[j+1] = a[j+1],a[j]
 
-def bubble_sort(unsorted):
-    return unsorted
+if call == 2:
+        bubble_sort(unsorted)
+        print("정렬 결과는 이렇습니다.\n")
+        print(unsorted)
+
 
 def quick_sort(unsorted):
-    return unsorted
-
-print("정렬 결과는 이렇습니다.\n")
-print(unsorted)
+          return unsorted
