@@ -1,0 +1,25 @@
+def swap(unsorted, i, j):
+    x[i], x[j] = x[j], x[i]
+
+def pivotFirst(x, L, R):
+    pivot_val = x[L]
+    pivot_idx = L
+    while L <= R:
+        while L <= R and x[L] <= pivot_val:
+            L += 1
+        while L <= R and x[R] >= pivot_val:
+            R -= 1
+        if L <= R:
+            swap(x, L, R)
+            L += 1
+            R -= 1
+    swap(x, pivot_idx, R)
+    return R
+
+def quickSort(x, pivotMethod=pivotFirst):
+    def _qsort(x, first, last):
+        if first < last:
+            splitpoint = pivotMethod(x, first, last)
+            _qsort(x, first, splitpoint-1)
+            _qsort(x, splitpoint+1, last)
+    _qsort(x, 0, len(x)-1)
